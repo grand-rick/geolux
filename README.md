@@ -4,7 +4,7 @@ The platform aims to revolutionalize learning in a more visual way, by leveragin
 
 ## Features
 
-- **Interactive Learning**: Through the platform, the learner gets to learn about geographical features, as they "walk" through the map.
+- **Interactive Learning**: Through the platform, the learner gets to learn about geographical features, as they "walk" through the map. The platform will have pins on various geographical features, and upon clicking, the learner will get to learn more about the feature.
 
 - **AI**: The platform uses AI to provide a more personalized learning experience, by recommending learning materials based on the learner's preferences.
 
