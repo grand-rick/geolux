@@ -12,16 +12,18 @@ import {
   LocationComponent,
   UserDialogData,
 } from '../../main/location/location.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-chat-bot',
   standalone: true,
   imports: [
-    MatButtonModule,
     MatDialogTitle,
     MatDialogContent,
     MatDialogActions,
     MatDialogClose,
+    MatFormFieldModule,
+    MatButtonModule,
   ],
   templateUrl: './chat-bot.component.html',
   styleUrl: './chat-bot.component.scss',

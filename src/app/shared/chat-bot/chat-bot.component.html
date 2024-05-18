@@ -1,9 +1,16 @@
 <h2 mat-dialog-title>AI Chat Bot</h2>
 <mat-dialog-content>
-  <p>Hello {{ data.fullName }}</p>
-  <p>Messages will be here</p>
+  <p class="fs-6">
+    Hi {{ data.fullName.split(" ")[0] }}, how can I help you today?
+  </p>
+  <form action="" class="d-flex flex-column">
+    <mat-form-field>
+      <mat-label>Enter message</mat-label>
+      <input type="text" placeholder="Enter message" matInput />
+    </mat-form-field>
+  </form>
 </mat-dialog-content>
-<mat-dialog-actions class="ml-auto">
+<mat-dialog-actions class="ml-auto d-flex justify-content-between">
   <button mat-raised-button (click)="onNoClick()" color="warn">Cancel</button>
   <button
     mat-raised-button
@@ -11,6 +18,6 @@
     cdkFocusInitial
     color="primary"
   >
-    Ok
+    Send
   </button>
 </mat-dialog-actions>
