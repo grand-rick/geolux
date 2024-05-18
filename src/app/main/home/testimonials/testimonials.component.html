@@ -1,0 +1,38 @@
+<section class="testimonials d-none d-md-block">
+  <p class="testimonials__title">Guest Reviews</p>
+  @if (isLoading) {
+  <p class="text-center">Loading...</p>
+  } @else {
+  <swiper-container
+    class="testimonial-wrapper"
+    slides-per-view="3"
+    loop="true"
+    autoplay-delay="3000"
+    autoplay-disable-on-interaction="false"
+    autoplay-reverse-direction="true"
+    allow-touch-move="false"
+    prevent-clicks="false"
+    navigation="true"
+    speed="3000"
+  >
+    @for (testimonial of testimonials; track $index) {
+    <swiper-slide>
+      <div class="testimonials__testimonial">
+        <div class="testimonials__testimonial-author">
+          <img
+            [src]="testimonial.image_url"
+            alt="Author"
+            class="testimonials__testimonial-avatar"
+          />
+          <p>{{ testimonial.full_name }}</p>
+          <p>{{ testimonial.title }}, {{ testimonial.company }}</p>
+        </div>
+        <div class="testimonials__testimonial-content">
+          <p>{{ testimonial.quote }}</p>
+        </div>
+      </div>
+    </swiper-slide>
+    }
+  </swiper-container>
+  }
+</section>

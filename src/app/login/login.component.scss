@@ -1,0 +1,37 @@
+div.auth__wrapper {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  height: 90vh;
+  background: #b0d0c2;
+
+  h1 {
+    font-size: 2.5rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+
+  // .auth__social__text {
+  //   margin-bottom: 1rem;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   gap: 2rem;
+  //   font-size: 4.5rem;
+  //   font-weight: bold;
+  // }
+
+  .auth__social__icons {
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    span {
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+<mat-toolbar color="white" class="header-wrapper">
+  <span class="spacer cursor-pointer" routerLink="/">GEOLUX</span>
+  <mat-icon>expand</mat-icon>
+  <span class="spacer cursor-pointer" [matMenuTriggerFor]="regionMenu">
+    Region
+  </span>
+  <mat-menu #regionMenu="matMenu">
+    @for (region of regions(); track $index) {
+    <button mat-menu-item>
+      <a href="/place/{{ region.id }}">{{ region.title }}</a>
+    </button>
+    }
+  </mat-menu>
+  <span class="spacer cursor-pointer" routerLink="/contact-us">Contact us</span>
+  <span class="spacer"></span>
+  <mat-divider [vertical]="true" color="black"></mat-divider>
+  @if (isLoggedIn()) {
+  <img
+    referrerpolicy="no-referrer"
+    src="{{ firebaseService.currentUserSig()?.photoURL }}"
+    alt="{{ firebaseService.currentUserSig()?.name }}"
+    width="50"
+    class="profile__image"
+    [matMenuTriggerFor]="authMenu"
+  />
+  <mat-menu #authMenu="matMenu">
+    <button mat-menu-item class="log-out-btn" (click)="logout()">
+      Log Out
+    </button>
+  </mat-menu>
+  } @else {
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Profile icon"
+    [matMenuTriggerFor]="authMenu"
+  >
+    <mat-icon>person</mat-icon>
+  </button>
+  <mat-menu #authMenu="matMenu">
+    <button mat-menu-item routerLink="/login">Login</button>
+    <button mat-menu-item routerLink="/login">Sign Up</button>
+  </mat-menu>
+  }
+</mat-toolbar>

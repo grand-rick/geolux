@@ -1,0 +1,51 @@
+<div class="row d-flex justify-content-center align-content-center p-5">
+  <form
+    class="example-form col-12 col-md-6"
+    [formGroup]="contactForm"
+    (ngSubmit)="sendMessage()"
+  >
+    <mat-form-field class="example-full-width">
+      <mat-label>Full Name</mat-label>
+      <input
+        matInput
+        placeholder="John Doe"
+        formControlName="name"
+        [errorStateMatcher]="matcher"
+      />
+      @if (contactForm.get('name')?.hasError('required')) {
+      <mat-error>Name is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+        formControlName="email"
+        [errorStateMatcher]="matcher"
+        placeholder="Ex. pat@example.com"
+      />
+      @if (contactForm.get('email')?.hasError('email') &&
+      !contactForm.get('email')?.hasError('required')) {
+      <mat-error>Please enter a valid email address</mat-error>
+      } @if (contactForm.get('email')?.hasError('required')) {
+      <mat-error>Email is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter your message</mat-label>
+      <textarea
+        matInput
+        cdkTextareaAutosize
+        #autosize="cdkTextareaAutosize"
+        cdkAutosizeMinRows="1"
+        cdkAutosizeMaxRows="5"
+        formControlName="message"
+      ></textarea>
+      @if (contactForm.get('message')?.hasError('required')) {
+      <mat-error>Message is <strong>required</strong></mat-error>
+      }
+    </mat-form-field>
+    <button mat-raised-button [disabled]="contactForm.invalid">Submit</button>
+  </form>
+</div>

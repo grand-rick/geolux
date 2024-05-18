@@ -1,0 +1,38 @@
+@if (!isLoading()) {
+<swiper-container
+  navigation="true"
+  slides-per-view="1"
+  loop="true"
+  autoplay-delay="5000"
+  autoplay-disable-on-interaction="false"
+  autoplay-reverse-direction="true"
+  speed="5000"
+  effect="slide"
+>
+  @for (banner of banners; track $index) {
+  <swiper-slide class="main-content">
+    <img
+      src="{{ banner.image_url }}"
+      alt="{{ banner.title }}"
+      class="banner__image"
+      loading="lazy"
+    />
+    <div class="sub-main-content">
+      <h1 class="main-content__title">{{ banner.title }}</h1>
+      <p>
+        {{ banner.description }}
+      </p>
+      <button
+        mat-raised-button
+        class="text-white bg-green"
+        routerLink="/location"
+      >
+        Visit
+      </button>
+    </div>
+  </swiper-slide>
+  }
+</swiper-container>
+} @else {
+<p class="text-center">Loading...</p>
+}

@@ -1,0 +1,10 @@
+<div
+  class="d-flex justify-content-center align-content-center flex-wrap gap-5 my-5 py-5 text-center"
+>
+  @if (placesByRegion() && placesByRegion().length > 0) { @for (place of
+  placesByRegion(); track $index) {
+  <place-card [place]="place" class=""></place-card>
+  } } @else {
+  <p>No places found in this region.</p>
+  }
+</div>

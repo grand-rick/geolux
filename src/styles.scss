@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  font-size: 62.5%; // 10px
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// UTILITY CLASSES
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.text-green {
+  color: #1aa73b;
+}
+
+.text-yellow {
+  color: #f8b400;
+}
+
+.bg-green {
+  background-color: #1aa73b !important;
+}
+
+// END UTILITY CLASSES

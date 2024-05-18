@@ -1,0 +1,23 @@
+<div class="place-card bg-white mx-auto mb-4 mb-md-0 mx-md-0">
+  <img
+    src="{{ place().image_url }}"
+    alt="{{ place().title }}"
+    class="place-card__img"
+  />
+  <div class="p-2 text-left">
+    <h2 class="fs-2 fw-bold">{{ place().title }}</h2>
+    <p class="fw-300 fs4">
+      {{ place().description.split("").slice(0, 28).join("").concat("...") }}
+    </p>
+    <div class="d-flex justify-content-between align-items-center px-3">
+      <button
+        mat-raised-button
+        class="bg-green text-white"
+        routerLink="/place/{{ place().id }}"
+      >
+        Book
+      </button>
+      <a routerLink="/place/{{ place().id }}">View Details</a>
+    </div>
+  </div>
+</div>
