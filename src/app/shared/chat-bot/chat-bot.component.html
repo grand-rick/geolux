@@ -3,21 +3,19 @@
   <p class="fs-6">
     Hi {{ data.fullName.split(" ")[0] }}, how can I help you today?
   </p>
-  <form action="" class="d-flex flex-column">
+  <form action="" [formGroup]="chatForm" class="d-flex flex-column">
     <mat-form-field>
       <mat-label>Enter message</mat-label>
-      <input type="text" placeholder="Enter message" matInput />
+      <input
+        type="text"
+        placeholder="Enter message"
+        matInput
+        formControlName="message"
+      />
     </mat-form-field>
   </form>
 </mat-dialog-content>
-<mat-dialog-actions class="ml-auto d-flex justify-content-between">
+<mat-dialog-actions class="d-flex justify-content-between px-4">
   <button mat-raised-button (click)="onNoClick()" color="warn">Cancel</button>
-  <button
-    mat-raised-button
-    [mat-dialog-close]="data"
-    cdkFocusInitial
-    color="primary"
-  >
-    Send
-  </button>
+  <button mat-raised-button cdkFocusInitial color="primary">Send</button>
 </mat-dialog-actions>
