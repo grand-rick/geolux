@@ -2,6 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
+import { FirebaseService } from '../../services/auth/firebase.service';
+import { ChatBotComponent } from '../../shared/chat-bot/chat-bot.component';
+
+export interface UserDialogData {
+  fullName: string;
+}
 
 @Component({
   selector: 'app-location',
@@ -11,7 +18,26 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './location.component.scss',
 })
 export class LocationComponent {
-  lat = 21.3069;
-  lng = -157.8583;
-  mapType = 'satellite';
+  constructor(public dialog: MatDialog, private auth: FirebaseService) {}
+
+  fullName: string = '';
+
+  openChatBotDialog(): void {
+    this.fullName = this.auth.currentUserSig()?.name || '';
+
+    const dialogRef = this.dialog.open(ChatBotComponent, {
+      data: { fullName: this.fullName },
+      disableClose: true,
+      position: { bottom: '10px', right: '10px' },
+    });
+
+    dialogRef.afterClosed().subscribe({
+      next: (result) => {
+        console.log('The dialog was closed');
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
+  }
 }

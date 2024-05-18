@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>AI Chat Bot</h2>
+<mat-dialog-content>
+  <p>Hello {{ data.fullName }}</p>
+  <p>Messages will be here</p>
+</mat-dialog-content>
+<mat-dialog-actions class="ml-auto">
+  <button mat-raised-button (click)="onNoClick()" color="warn">Cancel</button>
+  <button
+    mat-raised-button
+    [mat-dialog-close]="data"
+    cdkFocusInitial
+    color="primary"
+  >
+    Ok
+  </button>
+</mat-dialog-actions>
