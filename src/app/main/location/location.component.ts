@@ -19,6 +19,16 @@ export interface UserDialogData {
 })
 export class LocationComponent {
   constructor(public dialog: MatDialog, private auth: FirebaseService) {}
+  center!: google.maps.LatLngLiteral;
+
+  ngOnInit() {
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.center = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      };
+    });
+  }
 
   fullName: string = '';
 
